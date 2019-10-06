@@ -3,10 +3,11 @@ $dark-gray: #212121;
 .table {
     width: calc(100% - 40px);
     min-width: 640px;
-    margin: 20px;
+    margin: 20px auto;
     padding: 20px;
     border-collapse: collapse;
     position: relative;
+    max-width: 1280px;
 
     td, th  {
         padding: 20px 10px;
