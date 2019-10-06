@@ -1,0 +1,50 @@
+
+$indigo: #3F51B5;
+$blue: #2196F3;
+$dark-gray: #212121;
+$light: #FAFAFA;
+
+.header {
+    background-color: $dark-gray;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22); 
+
+    h1 {
+        margin: 0;
+        padding: 20px;
+        font-size: 18px;
+        color: $light;
+    }
+}
+
+.basket {
+    display: inline-block;
+    margin-left: auto;
+    text-align: right;
+    width: calc(100% - 190px);
+
+    button {
+        height: 40px;
+        background: #fff;
+        border: 1px solid $dark-gray;
+        padding: 0 30px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2), 0 7px 10px rgba(0,0,0,0.2); 
+        cursor: pointer;
+        margin-top: 75px;
+        transition: .25s;
+
+        &:disabled {
+            cursor: default;
+            box-shadow: none;
+        }
+    }
+}
+
+.loading {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 20px;
+}
+
+app-component {
+    position: relative;
+}

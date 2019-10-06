@@ -1,0 +1,46 @@
+<table class="table">
+    <tr>
+        <th>
+            <p>
+                Выбрать
+            </p>
+        </th>
+        <th>
+            <p>
+                Категория
+            </p>
+        </th>
+        <th (click)="sortGoods('name')" [ngClass]="{'up': sortNameUpper}">
+            <p class="table__arrow-icons">
+                Товар
+            </p>
+        </th>
+        <th (click)="sortGoods('price')" [ngClass]="{'up': sortPriceUpper}">
+            <p class="table__arrow-icons">
+                Цена
+            </p>
+        </th>
+    </tr>
+    <tr [hidden]="goods.hidden" *ngFor="let goods of goodsList">
+        <td class="table__checkbox">
+            <label [for]="goods.groupId + '_' + goods.id" >
+                <input 
+                    type="checkbox" 
+                    [id]="goods.groupId + '_' + goods.id" 
+                    (change)="toggleCheck($event, goods)" 
+                    [checked]="goods.selected"
+                >
+                <span class="table__checkbox-item"></span>
+            </label>
+        </td>
+        <td>
+            {{goods.groupName}}
+        </td>
+        <td>
+            {{goods.name}}
+        </td>
+        <td>
+            {{goods.price}} руб
+        </td>
+    </tr>
+</table>

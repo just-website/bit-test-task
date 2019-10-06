@@ -1,0 +1,33 @@
+<div class="header">
+  <div class="container">
+    <h1>{{ showTable ? 'Таблица товаров' : 'Корзина'}}</h1>
+  </div>
+</div>
+<ng-container *ngIf="showTable">
+  <div class="container">
+    <app-select 
+      [categoryes]="categoryList" 
+      (selected)="selectCategory($event)"
+    ></app-select>
+    <div class="basket">
+      <button (click)="goToBasket()" [disabled]="!basketList.length">
+        Добавить товары
+      </button>
+    </div>
+  </div>
+  <app-table 
+    [goodsList]="goodsList" 
+    *ngIf="!dataLoading else loading" 
+    (onChecked)="addGoods($event)"
+    (onSorted)="sortGoods($event)"
+  ></app-table>
+  <ng-template #loading>
+      <div class="loading">Loading...</div>
+  </ng-template>
+</ng-container>
+<app-basket [goods]="basketList" *ngIf="!showTable"></app-basket>
+<app-modal 
+  (onReturn)="returnToGoods()" 
+  (onBasket)="openBasket()"
+  *ngIf="showModal"
+></app-modal>

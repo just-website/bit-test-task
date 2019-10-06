@@ -1,0 +1,33 @@
+<div class="container" *ngIf="totalPrice" >
+    <h2>
+        Ваш заказ: 
+    </h2>
+    <div class="basket-list">
+        <div class="basket-list__item" *ngFor="let item of goods" @toggleHide>
+            <div class="basket-list__item-name">
+                <p class="basket-list__item-dscr">Наименование</p>
+                {{item.groupName + ': ' + item.name}}
+            </div>
+            <div class="basket-list__item-price">
+                <p class="basket-list__item-dscr">
+                    Цена
+                </p>
+                {{item.price + 'руб.'}}
+            </div>
+            <div class="basket-list__btn"  (click)="deleteItem(item)">
+            </div>
+        </div>
+    </div>
+    <h2>
+        Итого
+    </h2>
+    <p>
+        {{totalPrice + 'руб.'}}
+    </p>
+</div>
+
+<div class="container" *ngIf="!totalPrice">
+    <h2>
+        Ваша корзина пуста.
+    </h2>
+</div>

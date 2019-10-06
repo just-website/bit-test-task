@@ -1,0 +1,52 @@
+
+.select {
+    position: relative;
+    display: inline-block;
+    margin-top: 20px;   
+  }
+  
+.select select {
+    cursor: pointer; 
+    background-color: #FAFAFA;
+    color: 212121;
+    padding: 10px;
+    width: 190px;
+    border: 1px solid #212121;
+    font-size: 16px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2), 0 7px 10px rgba(0,0,0,0.2); 
+    -webkit-appearance: button;
+    appearance: button;
+    outline: none;
+}
+
+.select::before,
+.select::after {
+    content: "";
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 3px;
+    height: 10px;
+    background-color: #212121;
+    pointer-events: none;
+    transform: rotate(45deg);
+}
+
+.select::after {
+    transform: rotate(-45deg);
+    right: 21px;
+}
+
+
+.select select option {
+    padding: 30px;
+}
+
+.select-title {
+    margin-bottom: 0;
+    padding-top: 20px;
+}
+
+.wrapper {
+    display: inline-block;
+}

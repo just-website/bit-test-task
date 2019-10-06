@@ -1,0 +1,115 @@
+$dark-gray: #212121;
+
+.table {
+    width: calc(100% - 40px);
+    min-width: 640px;
+    margin: 20px;
+    padding: 20px;
+    border-collapse: collapse;
+    position: relative;
+
+    td, th  {
+        padding: 20px 10px;
+        text-align-last: left;
+        p {
+            padding: 0;
+            margin: 0;
+        }
+    }
+
+    th {
+        border-bottom: 1px solid $dark-gray;
+
+        &:nth-child(1) {
+            width: 100px;
+        }
+        
+        &:nth-child(2) {
+            width: 150px;
+        }
+
+        &:nth-child(3),
+        &:nth-child(4) {
+            cursor: pointer;
+            min-width: 70px;
+        }
+    }
+
+    .table__checkbox {
+        text-align: center;
+
+        label   {
+            height: 22px;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        input[type="checkbox"] {
+            display: none;
+
+            &:checked + .table__checkbox-item {
+                position: relative;
+                &::before {
+                    position: absolute;
+                    display: block;
+                    content: '';
+                    width: 10px;
+                    height: 10px;
+                    top: 4px;
+                    left: 4px;
+                    background-color: $dark-gray;
+                    border-radius: 2px;
+                }
+            }
+        }
+
+        &-item {
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            border: 2px solid $dark-gray;
+            border-radius: 2px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2), 0 7px 10px rgba(0,0,0,0.2); 
+        }
+    }
+
+    &__arrow-icons {
+        margin: 0;
+        padding: 0;
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+
+        &::before,
+        &::after {
+            content: "";
+            cursor: pointer;
+            position: absolute;
+            top: 6px;
+            right: -20px;
+            width: 3px;
+            height: 10px;
+            background-color: #212121;
+            pointer-events: none;
+            transform: rotate(45deg);
+            transition: .25s;
+            
+            .up & {
+                transform: rotate(-45deg);
+            }
+        }
+
+        &:after {
+            transform: rotate(-45deg);
+            right: -14px;
+            .up & {
+                transform: rotate(45deg);
+            }
+        }
+
+        
+    }
+}
